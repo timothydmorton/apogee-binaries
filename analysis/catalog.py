@@ -1,14 +1,19 @@
+import os
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 
 from isochrones.catalog import StarCatalog
 
+DATA_ROOT = os.getenv("APOGEE_BINARIES", "../data")
 
-def get_catalog(
-    filename="../data/gold_photometry.hdf", props=["parallax"], bands=["G", "BP", "RP", "J", "H", "K"]
-):
 
-    df = pd.read_hdf(filename)
+def get_catalog(dataset="gold", props=["parallax"], bands=["G", "BP", "RP", "J", "H", "K"]):
+
+    path = Path(f"{DATA_ROOT}/{dataset}_photometry.hdf")
+
+    df = pd.read_hdf(path)
 
     column_map = dict(
         GAIA_PHOT_G_MEAN_MAG="G_mag",
