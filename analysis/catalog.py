@@ -6,7 +6,7 @@ import numpy as np
 
 from isochrones.catalog import StarCatalog
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_ROOT = Path(f"{REPO_ROOT}/data")
 
 
