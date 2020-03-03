@@ -7,7 +7,7 @@ sys.path.append("..")
 from analysis.catalog import get_catalog
 
 # write ini files
-for dataset in ["gold"]:  # , "all20k"]:
+for dataset in ["gold", "all20k"]:
     catalog = get_catalog(dataset=dataset)
     results_root = Path(f"../results_{dataset}")
     paths = catalog.write_ini(N=2, root=results_root)
