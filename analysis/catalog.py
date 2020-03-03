@@ -6,10 +6,13 @@ import numpy as np
 
 from isochrones.catalog import StarCatalog
 
+REPO_ROOT = Path(__file__).resolve().parent
+DATA_ROOT = Path(f"{REPO_ROOT}/data")
+
 
 def get_catalog(dataset="gold", props=["parallax"], bands=["G", "BP", "RP", "J", "H", "K"]):
 
-    path = Path(f"/{dataset}_photometry.hdf")
+    path = Path(f"{DATA_ROOT}/{dataset}_photometry.hdf")
 
     df = pd.read_hdf(path)
 
